@@ -9,7 +9,7 @@
   scroll-behavior: smooth;
 }
 :root{
-  --prim-color: #f4ede8;
+  --prim-color: #fedbd9;
   --black-color :#000000;
   --white-color: #ffffff;
   --text-color : #333333;
@@ -18,4 +18,247 @@
   --Tangerine: "Tangerine", cursive;
   --transition-regular: all 0.3s ease;
   --transition-slow: all 0.6s ease;
+}
+
+html,
+body{
+  overflow-x: hidden;
+  background-color: #fedbd9;
+}
+.nav-wrapper{
+  padding: 0 5%;
+}
+.cart-count{
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1px;
+  width: 22px;
+  height: 22px;
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+.nav-link{
+  display: inline-block;
+  font-weight: 700;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.nav-link::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(--black-color);
+  transition: var(--transition-regular);
+}
+
+.nav-link::before{
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(--black-color);
+  transition: var(--transition-regular);
+}
+
+.nav-link:hover::after,
+.nav-link:hover::before{
+  width: 100%;
+}
+/* Nav mq section */
+  
+@media (max-width: 100px){
+  .nav-wrapper{
+    padding: 0 5%;
+  }
+  
+  /* Target the link element to control display and padding */
+  .navbar-collapse .nav-menu li a {
+    display: block !important; 
+    color: var(--black-color) !important;
+    background-color: transparent !important; 
+    text-align: left !important; 
+    padding: 10px 5% !important; 
+  }
+
+  /* Reset the initial state of the pseudo-elements for the mobile menu */
+  .nav-menu li a::after,
+  .nav-menu li a::before {
+    /* FIX: Set the correct starting position/size for mobile menu links */
+    left: 5% !important; 
+    width: 0 !important; /* Ensure the lines are INITIALLY invisible */
+  }
+
+  /* FIX: Apply the full width ONLY on hover to create the animation */
+  .nav-link:hover::after,
+  .nav-link:hover::before {
+    width: 90% !important; /* Lines appear across the 90% content width */
+  }
+  
+  /* Existing button hover style */
+  .btn:hover{
+    background-color: var(--prim-color) !important;
+    color: var(--white-color) !important;
+  }
+}
+.hero{
+  margin-top: 80px;
+}
+.hero-wrap1 {
+  height: 90vh;
+  background-image: url('assets/2015-08-20 11.21.46 1.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  animation: Anim-zoomout 0.3s ease forwards;
+}
+.hero-wrap2 {
+  height: 90vh;
+  background-image: url('assets/logo.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+.hero-wrap3 {
+  height: 90vh;
+  background-image: url('assets/demo-image.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+.hero-content {
+  padding: 0 8%;
+  width: 50%;
+}
+.hero-content h5 {
+  color: var(--black-color);
+  opacity: 1;
+  animation: anim-left 0.6s 0.3s forwards linear;
+}
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  opacity: 1;
+  animation: anim-left 0.6s 0.6s forwards linear;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  width: 80%;
+  color: var(--text-color);
+  opacity: 1;
+  animation: anim-left 0.6s 0.9s forwards linear;
+}
+.hero-btn {
+  font-size: 1.5rem;
+  width: 208px !important;
+  opacity: 1;
+  animation: anim-left 0.6s 1.2s forwards linear;
+}
+
+/* Product Card Hover Effects */
+.product-card {
+  transition: var(--transition-regular);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+/* Search Bar Animation */
+.search-bar-container {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Hover Effects - Keep Your Original Styling */
+.btn-dark:hover {
+  background-color: var(--prim-color) !important;
+  border-color: var(--prim-color) !important;
+  color: var(--black-color) !important;
+  transition: var(--transition-regular);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--black-color) !important;
+  color: var(--white-color) !important;
+  transition: var(--transition-regular);
+}
+
+/* Accordion Styling */
+.accordion-button:not(.collapsed) {
+  background-color: var(--prim-color);
+  color: var(--black-color);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: var(--prim-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    width: 90%;
+    padding: 0 5%;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Animations from your original code */
+@keyframes anim-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes Anim-zoomout {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
